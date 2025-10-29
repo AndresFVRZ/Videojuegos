@@ -1,0 +1,15 @@
+.home-bg {
+  background: url('https://st3.depositphotos.com/1010652/14828/v/950/depositphotos_148283555-stock-illustration-video-game-seamless-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: brightness(0.6);
+  min-height: 100vh;
+}
+
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 193, 7, 0.5);
+}

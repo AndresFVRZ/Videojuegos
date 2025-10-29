@@ -1,8 +1,11 @@
-import { RenderMode, ServerRoute } from '@angular/ssr';
+import { Routes } from '@angular/router';
+import { Home } from './page/home/home';
+import { About } from './page/about/about';
+import { Contact } from './page/contact/contact';
 
-export const serverRoutes: ServerRoute[] = [
-  {
-    path: '**',
-    renderMode: RenderMode.Prerender
-  }
+export const routes: Routes = [
+  { path: '', component: Home },
+  { path: 'nosotros', component: About },
+  { path: 'contacto', component: Contact },
+  { path: '**', redirectTo: '' },
 ];

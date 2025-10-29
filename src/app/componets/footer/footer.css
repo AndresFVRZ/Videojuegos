@@ -1,0 +1,34 @@
+.footer {
+  background-color: #1c1c1c;
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-btn {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  color: #ffc107;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.footer-btn:hover {
+  transform: scale(1.1);
+  background-color: #ffc107;
+  color: #1c1c1c;
+}
+
+.footer-link {
+  color: #ffc107;
+  text-decoration: none;
+  margin: 0 3px;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #fff;
+}

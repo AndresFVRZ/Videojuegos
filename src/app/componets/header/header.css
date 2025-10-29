@@ -1,0 +1,21 @@
+/* Efecto hover en links */
+.navbar .nav-link {
+  transition: all 0.3s;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.navbar .nav-link:hover {
+  background-color: rgba(255, 193, 7, 0.3);
+  color: #fff !important;
+}
+
+/* Logo con efecto */
+.navbar-brand {
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1);
+}
