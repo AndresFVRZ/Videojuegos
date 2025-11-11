@@ -1,5 +1,5 @@
 .home-bg {
-  background: url('https://www.shutterstock.com/es/image-vector/big-set-neon-sing-game-room-1056657629') no-repeat center center fixed;
+  background: url('https://cdn.pixabay.com/photo/2021/10/06/20/24/uhd-6686654_1280.jpg') no-repeat center center fixed;
   background-size: cover;
   backdrop-filter: brightness(0.6);
   min-height: 100vh;
@@ -20,5 +20,5 @@
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+  box-shadow: 0 0 20px rgba(0, 4, 255, 0.6);
 }

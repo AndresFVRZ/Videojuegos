@@ -1,15 +1,206 @@
+/* 🎮 Fondo general con temática gamer */
 .home-bg {
-  background: url('https://st3.depositphotos.com/1010652/14828/v/950/depositphotos_148283555-stock-illustration-video-game-seamless-background.jpg') no-repeat center center fixed;
+  background: url("https://st3.depositphotos.com/1010652/14828/v/950/depositphotos_148283555-stock-illustration-video-game-seamless-background.jpg")
+    no-repeat center center fixed;
   background-size: cover;
-  backdrop-filter: brightness(0.6);
+  backdrop-filter: brightness(0.65);
   min-height: 100vh;
+  padding: 60px 20px;
 }
 
+/* 🧱 ELIMINAR games-grid y usar Bootstrap .row */
+/* .games-grid { ELIMINA ESTO } */
+
+/* 🎴 Tarjetas de juegos CORREGIDO */
 .card {
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: rgba(20, 20, 20, 0.9);
+  border: 2px solid #ffc107;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
+/* 🔥 CORRECCIÓN CRÍTICA - Asegurar que las columnas funcionen */
+.col-md-4 {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.col-md-4 > .card {
+  width: 100%;
+}
+
+/* ✨ Efecto al pasar el mouse */
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 193, 7, 0.5);
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255, 193, 7, 0.6);
+}
+
+/* 🖼 Imagen de cada juego CORREGIDO */
+.card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease, transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+.card:hover img {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* 📋 Cuerpo del contenido de la tarjeta CORREGIDO */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffc107;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #cfcfcf;
+  text-align: center;
+  flex-grow: 1;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 💲 Precio del juego */
+.h5.text-success {
+  font-weight: 700;
+  color: #5aff5a !important;
+  text-align: center;
+  margin-bottom: 15px;
+  animation: glowPrice 2s infinite;
+}
+
+/* 🏷️ Etiquetas tipo base de datos */
+.game-tag {
+  display: inline-block;
+  background: #212121;
+  color: #ffc107;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin: 4px 2px;
+  border: 1px solid #ffc107;
+}
+
+/* 🟡 Botón de Steam CORREGIDO */
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  color: #000;
+  transition: all 0.25s ease-in-out;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 8px 18px;
+  display: block;
+  margin: 10px auto 0;
+  width: fit-content;
+  flex-shrink: 0;
+}
+
+.btn-warning:hover {
+  background-color: #ffdb4d;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+}
+
+/* 🧩 Animación de aparición */
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🕹️ Animación para el precio */
+@keyframes glowPrice {
+  0%, 100% { 
+    color: #5aff5a; 
+    text-shadow: 0 0 10px #5aff5a; 
+  }
+  50% { 
+    color: #85ff85; 
+    text-shadow: 0 0 15px #85ff85; 
+  }
+}
+
+/* 🎯 Etiquetas de estado CORREGIDO */
+.card[data-status]::after {
+  content: attr(data-status);
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  background: #dc3545;
+  color: #fff;
+  padding: 5px 35px;
+  font-size: 0.75rem;
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
+  z-index: 10;
+}
+
+.card[data-status="Nuevo"]::after {
+  background: #28a745;
+}
+
+.card[data-status="Oferta"]::after {
+  background: #ffc107;
+  color: #000;
+}
+
+/* 📱 Adaptabilidad móvil CORREGIDO */
+@media (max-width: 768px) {
+  .card img {
+    height: 180px;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-text {
+    min-height: 50px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .col-md-4 {
+    margin-bottom: 1.5rem;
+  }
 }

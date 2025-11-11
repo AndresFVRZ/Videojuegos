@@ -97,6 +97,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
+            "dir": "dist/videojuegos",
             "baseHref": "https://AndresFVRZ.github.io/Videojuegos/"
           }
         }
@@ -107,4 +108,3 @@
     "analytics": "8072685c-dce2-48c4-b886-bf01aeb78a01"
   }
 }
-
