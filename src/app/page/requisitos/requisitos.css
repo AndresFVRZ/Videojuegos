@@ -1,6 +1,6 @@
 /* 🎮 Fondo general con temática gamer */
 .home-bg {
-  background: url("https://st3.depositphotos.com/1010652/14828/v/950/depositphotos_148283555-stock-illustration-video-game-seamless-background.jpg")
+  background: url("https://media.istockphoto.com/id/2155769551/es/foto/t%C3%BAnel-digital-de-datos-flujo-de-informaci%C3%B3n.jpg?s=612x612&w=0&k=20&c=VygZWxZawy4hGT61lV9l4SxSEVn0S39o41eJbaesugY=")
     no-repeat center center fixed;
   background-size: cover;
   backdrop-filter: brightness(0.65);
@@ -8,10 +8,7 @@
   padding: 60px 20px;
 }
 
-/* 🧱 ELIMINAR games-grid y usar Bootstrap .row */
-/* .games-grid { ELIMINA ESTO } */
 
-/* 🎴 Tarjetas de juegos CORREGIDO */
 .card {
   background: rgba(20, 20, 20, 0.9);
   border: 2px solid #ffc107;
@@ -26,7 +23,7 @@
   flex-direction: column;
 }
 
-/* 🔥 CORRECCIÓN CRÍTICA - Asegurar que las columnas funcionen */
+
 .col-md-4 {
   display: flex;
   margin-bottom: 2rem;
@@ -42,7 +39,7 @@
   box-shadow: 0 0 25px rgba(255, 193, 7, 0.6);
 }
 
-/* 🖼 Imagen de cada juego CORREGIDO */
+
 .card img {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -58,7 +55,7 @@
   transform: scale(1.05);
 }
 
-/* 📋 Cuerpo del contenido de la tarjeta CORREGIDO */
+
 .card-body {
   padding: 20px;
   display: flex;
@@ -96,7 +93,7 @@
   animation: glowPrice 2s infinite;
 }
 
-/* 🏷️ Etiquetas tipo base de datos */
+
 .game-tag {
   display: inline-block;
   background: #212121;
@@ -108,7 +105,7 @@
   border: 1px solid #ffc107;
 }
 
-/* 🟡 Botón de Steam CORREGIDO */
+
 .btn-warning {
   background-color: #ffc107;
   border: none;
@@ -129,7 +126,7 @@
   box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
 }
 
-/* 🧩 Animación de aparición */
+
 .card {
   opacity: 0;
   transform: translateY(20px);
@@ -143,7 +140,7 @@
   }
 }
 
-/* 🕹️ Animación para el precio */
+
 @keyframes glowPrice {
   0%, 100% { 
     color: #5aff5a; 
@@ -155,7 +152,7 @@
   }
 }
 
-/* 🎯 Etiquetas de estado CORREGIDO */
+
 .card[data-status]::after {
   content: attr(data-status);
   position: absolute;
@@ -179,7 +176,7 @@
   color: #000;
 }
 
-/* 📱 Adaptabilidad móvil CORREGIDO */
+
 @media (max-width: 768px) {
   .card img {
     height: 180px;
