@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 export interface Juego {
     id: number;
@@ -14,7 +14,7 @@ export interface Juego {
 @Component({
     selector: 'app-requisitos',
     standalone: true,
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './requisitos.html',
     styleUrls: ['./requisitos.css']
 })
