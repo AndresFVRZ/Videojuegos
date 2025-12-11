@@ -1,26 +1,14 @@
 {
   "name": "games-lords",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng e2e",
-    "deploy": "ng build --base-href \"https://AndresFVRZ.github.io/Videojuegos/\" npx angular-cli-ghpages --dir=dist/TechStudio"
+    "deploy": "ng build --configuration production --base-href \"https://AndresFVRZ.github.io/Videojuegos/\" && npx angular-cli-ghpages --dir=dist/videojuegos"
   },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
-  },
-  "private": true,
   "dependencies": {
     "@angular/common": "^21.0.4",
     "@angular/compiler": "^21.0.4",
