@@ -1,163 +1,57 @@
-<div class="home-bg text-light min-vh-100 d-flex align-items-center justify-content-center">
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <div class="card bg-dark text-light border-warning shadow-lg p-4">
-          <h2 class="text-warning text-center mb-4">
-            📧 Contáctanos
-          </h2>
-          <p class="text-center mb-4">
-            Complete el formulario y nos pondremos en contacto con usted en un plazo de 24 horas.
-          </p>
+<div class="container mt-5" style="max-width: 500px;">
+  <div class="card shadow-sm p-4">
+    <h3 class="mb-4 text-center">Formulario de Contacto</h3>
 
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
-            <!-- Nombre -->
-            <div class="mb-4">
-              <label for="nombre" class="form-label">Nombre completo *</label>
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  [ngClass]="getFieldClass(nombre)"
-                  id="nombre"
-                  formControlName="nombre"
-                  placeholder="Ej: Juan Pérez">
-                </div>
-                @if (hasError(nombre, 'required') || hasError(nombre, 'minlength') || hasError(nombre, 'pattern')) {
-                  <div class="invalid-feedback">
-                    {{ getErrorMessage(nombre) }}
-                  </div>
-                }
-                @if (nombre?.valid && (nombre?.dirty || nombre?.touched)) {
-                  <div class="valid-feedback">
-                    ¡Nombre válido!
-                  </div>
-                }
-              </div>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
-              <!-- Correo -->
-              <div class="mb-4">
-                <label for="correo" class="form-label">Correo electrónico *</label>
-                <div class="input-group">
-                  <input
-                    type="email"
-                    class="form-control"
-                    [ngClass]="getFieldClass(correo)"
-                    id="correo"
-                    formControlName="correo"
-                    placeholder="Ej: juan@ejemplo.com">
-                  </div>
-                  @if (hasError(correo, 'required') || hasError(correo, 'email') || hasError(correo, 'pattern')) {
-                    <div class="invalid-feedback">
-                      {{ getErrorMessage(correo) }}
-                    </div>
-                  }
-                  @if (correo?.valid && (correo?.dirty || correo?.touched)) {
-                    <div class="valid-feedback">
-                      ¡Correo electrónico válido!
-                    </div>
-                  }
-                </div>
-
-                <!-- Asunto -->
-                <div class="mb-4">
-                  <label for="asunto" class="form-label">Asunto *</label>
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      [ngClass]="getFieldClass(asunto)"
-                      id="asunto"
-                      formControlName="asunto"
-                      placeholder="Ej: Consulta sobre servicios">
-                    </div>
-                    @if (hasError(asunto, 'required') || hasError(asunto, 'minlength')) {
-                      <div class="invalid-feedback">
-                        {{ getErrorMessage(asunto) }}
-                      </div>
-                    }
-                    @if (asunto?.valid && (asunto?.dirty || asunto?.touched)) {
-                      <div class="valid-feedback">
-                        ¡Asunto válido!
-                      </div>
-                    }
-                  </div>
-
-                  <!-- Mensaje -->
-                  <div class="mb-4">
-                    <label for="mensaje" class="form-label">Mensaje *</label>
-                    <div class="input-group">
-                      <textarea
-                        class="form-control"
-                        [ngClass]="getFieldClass(mensaje)"
-                        id="mensaje"
-                        formControlName="mensaje"
-                        rows="5"
-                      placeholder="Escribe tu mensaje aquí..."></textarea>
-                    </div>
-                    <div class="d-flex justify-content-between mt-1">
-                      @if (hasError(mensaje, 'required') || hasError(mensaje, 'minlength') || hasError(mensaje, 'maxlength')) {
-                        <div class="invalid-feedback">
-                          {{ getErrorMessage(mensaje) }}
-                        </div>
-                      }
-                      <div>
-                  <small [ngClass]="{
-                    'text-danger': messageCount > 950,
-                    'text-warning': messageCount > 800 && messageCount <= 950,
-                    'text-muted': messageCount <= 800
-                  }">
-                          {{ messageCount }}/1000 caracteres
-                        </small>
-                      </div>
-                    </div>
-                    @if (mensaje?.valid && (mensaje?.dirty || mensaje?.touched)) {
-                      <div class="valid-feedback">
-                        ¡Mensaje válido!
-                      </div>
-                    }
-                  </div>
-
-                  <!-- Mensajes de estado -->
-                  @if (submitSuccess) {
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                      ✅ ¡Mensaje enviado con éxito! Te contactaremos en un plazo de 24 horas.
-                      <button type="button" class="btn-close" (click)="submitSuccess = false" aria-label="Close"></button>
-                    </div>
-                  }
-
-                  @if (submitError) {
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                      ❌ Hubo un error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.
-                      <button type="button" class="btn-close" (click)="submitError = false" aria-label="Close"></button>
-                    </div>
-                  }
-
-                  <!-- Botones -->
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                    <button type="button" class="btn btn-outline-light me-md-2" (click)="onReset()" [disabled]="isSubmitting">
-                      🔄 Limpiar
-                    </button>
-                    <button type="submit" class="btn btn-warning btn-lg fw-bold" [disabled]="isSubmitting || contactForm.invalid">
-                      📨
-                      @if (!isSubmitting) {
-                        <span>Enviar Mensaje</span>
-                      }
-                      @if (isSubmitting) {
-                        <span>
-                          <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                          Enviando...
-                        </span>
-                      }
-                    </button>
-                  </div>
-
-                  <p class="text-muted mt-3 small text-center">
-                    * Campos obligatorios
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Nombre -->
+      <div class="mb-3 position-relative">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control form-control-sm rounded-3" formControlName="nombre" placeholder="Nombre">
+        <span *ngIf="contactForm.get('nombre')?.touched"
+              class="position-absolute top-50 end-0 translate-middle-y me-3">
+          <i *ngIf="contactForm.get('nombre')?.valid" class="text-success">✅</i>
+          <i *ngIf="contactForm.get('nombre')?.invalid" class="text-danger">❌</i>
+        </span>
       </div>
+
+      <!-- Email -->
+      <div class="mb-3 position-relative">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control form-control-sm rounded-3" formControlName="email" placeholder="Correo electrónico">
+        <span *ngIf="contactForm.get('email')?.touched"
+              class="position-absolute top-50 end-0 translate-middle-y me-3">
+          <i *ngIf="contactForm.get('email')?.valid" class="text-success">✅</i>
+          <i *ngIf="contactForm.get('email')?.invalid" class="text-danger">❌</i>
+        </span>
+      </div>
+
+      <!-- Celular -->
+      <div class="mb-3 position-relative">
+        <label class="form-label">Celular</label>
+        <input type="text" class="form-control form-control-sm rounded-3" formControlName="celular" placeholder="Celular">
+        <span *ngIf="contactForm.get('celular')?.touched"
+              class="position-absolute top-50 end-0 translate-middle-y me-3">
+          <i *ngIf="contactForm.get('celular')?.valid" class="text-success">✅</i>
+          <i *ngIf="contactForm.get('celular')?.invalid" class="text-danger">❌</i>
+        </span>
+      </div>
+
+      <!-- Mensaje -->
+      <div class="mb-3 position-relative">
+        <label class="form-label">Mensaje</label>
+        <textarea class="form-control form-control-sm rounded-3" rows="3" formControlName="mensaje" placeholder="Mensaje"></textarea>
+        <span *ngIf="contactForm.get('mensaje')?.touched"
+              class="position-absolute top-0 end-0 me-3 mt-2">
+          <i *ngIf="contactForm.get('mensaje')?.valid" class="text-success">✅</i>
+          <i *ngIf="contactForm.get('mensaje')?.invalid" class="text-danger">❌</i>
+        </span>
+      </div>
+
+      <button class="btn btn-primary w-100 btn-sm rounded-3" type="submit"
+              [disabled]="contactForm.invalid">
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>
